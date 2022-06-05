@@ -89,7 +89,6 @@ export default {
   },
   data() {
     return {
-      flag:"00",
       leftActive: false,
       rightActive: false,
       backActiveflag: false,
