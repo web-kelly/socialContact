@@ -1,0 +1,35 @@
+/* 全局样式表 */
+html,
+body,
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+p,h1,h2 {
+    margin: 0;
+    padding: 0;
+    /* font-size: 16px; */
+}
+
+/* //全局设置vant按钮颜色 */
+/* .van-button {
+    color: #fff !important;
+    background: #ee0a24 !important;
+} */
+/* //全局设置vant图标字体颜色 */
+/* .van-icon {
+    color: #ee0a24 !important;} */
+/* //全局设置导航栏图标字体颜色 */
+/* //全局设置van-button图标字体颜色 */
+/* .van-button--primary {
+    background: #ee0a24 !important;
+    border: 1px solid #ee0a24 !important;
+} */
+    .van-nav-bar .van-icon {
+        color: #ee0a24  !important;
+    }
+    .van-nav-bar__text {
+        color: #ee0a24  !important;;
+    }
