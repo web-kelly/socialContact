@@ -1,13 +1,11 @@
 <template>
   <div class="swipeImgCont" :style="style">
-    <ImgDetails v-if="imgDetailFlag" />
-    <ul v-else class="stack">
+    <ul class="stack">
       <li
         class="stack-item"
         v-for="(item, index) in pages"
         :key="index"
         :style="[transformIndex(index), transform(index)]"
-        @click="handleStackClicked(index)"
         @touchmove.stop.capture="touchmove"
         @touchstart.stop.capture="touchstart"
         @touchend.stop.capture="touchend($event, index)"
@@ -35,9 +33,9 @@
         </div>
       </li>
     </ul>
-
     <div class="btnHover">
       <van-button
+        @click="getBackNoLike"
         style="height: 42px; width: 42px; border-color: #dcdee0"
         class="btnstyle"
         size="normal"
@@ -81,23 +79,16 @@
   </div>
 </template>
 <script>
-import ImgDetails from "../../views/ImgDetails.vue";
-
 export default {
-  name: "SwiPe",
-  components: {
-    ImgDetails,
-  },
   props: {
     // pages数据包含基础的图片数据
-    indexbackflagswp: {
-      type: Boolean,
-      default: false,
-    },
+    // pages: {
+    //   type: Array,
+    //   default: [],
+    // },
   },
   data() {
     return {
-      imgDetailFlag: false,
       leftActive: false,
       rightActive: false,
       backActiveflag: false,
@@ -205,9 +196,6 @@ export default {
           sign: "***** ********",
         },
       ],
-      indexData: 0,
-      indexDataback: false,
-      gklflag: false,
     };
   },
   created() {
@@ -216,19 +204,6 @@ export default {
     this.width = width;
     this.height = height;
     this.style = { width: width + "px", height: height + "px" };
-  },
-  watch: {
-    // indexbackflagswp(newName, oldName) {
-    //   console.log(newName);
-    //   this.indexDataback = newName;
-    //   if (this.indexDataback) {
-    //     this.imgDetailFlag = false;
-    //     this.gklflag = true;
-    //   } else if (this.gklflag) {
-    //     this.imgDetailFlag = false;
-    //   }
-    //   console.log(this.indexDataback);
-    // },
   },
   computed: {
     // 划出面积比例
@@ -256,13 +231,6 @@ export default {
     // });
   },
   methods: {
-    handleStackClicked(val) {
-      console.log(val);
-      this.imgDetailFlag = true;
-      this.indexData = val;
-      this.$emit("imgstack", this.imgDetailFlag, this.indexData);
-      console.log(this.imgDetailFlag);
-    },
     touchstart(e) {
       if (this.temporaryData.tracking) {
         return;
@@ -623,8 +591,8 @@ export default {
 }
 .btnHover {
   width: 80%;
-  position: fixed;
-  bottom: 12%;
+  position: absolute;
+  bottom: 6%;
   display: flex;
   z-index: 3;
   overflow: hidden;

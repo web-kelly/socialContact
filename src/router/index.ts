@@ -18,6 +18,11 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView
   },
   {
+    path: '/ImgDetails',
+    name: 'ImgDetails',
+    component: () => import(/* webpackChunkName: "about" */ 'views/ImgDetails.vue')
+  },
+  {
     path: '/fwxy',
     name: 'fwxy',
     component: () => import(/* webpackChunkName: "about" */ 'components/login/FwXy.vue')
@@ -47,6 +52,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'locationSelect',
     component: () => import(/* webpackChunkName: "about" */ 'components/login/locationSelect.vue')
   },
+  // {
+  //   path: '/ImgDetails',
+  //   name: 'ImgDetails',
+  //   component: () => import(/* webpackChunkName: "about" */ 'components/login/ImgDetails.vue')
+  // },
   {
     path: '/about',
     name: 'about',

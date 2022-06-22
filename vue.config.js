@@ -6,7 +6,7 @@ module.exports = defineConfig({
     hot: true,
     open: true,
     port: 8080,
-    host: "192.168.199.220",
+    host: "192.168.199.219",
   },
   // 相对路径别名设置
   configureWebpack: {
